@@ -1,111 +1,159 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+/* Lumen — Sacred & Cinematic Design System
+   All colors HSL. Tokens only. */
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    /* Core sacred palette — midnight, ivory, gold */
+    --background: 222 45% 6%;
+    --foreground: 40 30% 92%;
+
+    --card: 222 40% 9%;
+    --card-foreground: 40 30% 92%;
+
+    --popover: 222 45% 6%;
+    --popover-foreground: 40 30% 92%;
+
+    /* Gold leaf — primary accent */
+    --primary: 42 70% 60%;
+    --primary-foreground: 222 45% 6%;
+    --primary-glow: 44 85% 70%;
+    --primary-deep: 36 60% 42%;
+
+    --secondary: 222 35% 14%;
+    --secondary-foreground: 40 30% 92%;
+
+    --muted: 222 30% 12%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 42 70% 60%;
+    --accent-foreground: 222 45% 6%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 40 30% 92%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 14%;
+    --ring: 42 70% 60%;
+
+    --radius: 0.25rem;
+
+    /* Named scene tokens */
+    --ink: 222 50% 4%;
+    --night: 222 45% 9%;
+    --dusk: 222 40% 14%;
+    --ivory: 40 35% 94%;
+    --parchment: 38 30% 88%;
+    --gold: 42 70% 60%;
+    --gold-soft: 42 50% 50%;
+    --ember: 22 75% 55%;
+
+    /* Gradients */
+    --gradient-night: radial-gradient(ellipse at 50% 0%, hsl(222 45% 14%) 0%, hsl(222 50% 5%) 70%);
+    --gradient-dawn: linear-gradient(180deg, hsl(222 50% 5%) 0%, hsl(222 40% 12%) 40%, hsl(28 40% 20%) 80%, hsl(42 60% 35%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 70% 60%) 0%, hsl(36 60% 42%) 100%);
+    --gradient-rays: radial-gradient(ellipse 80% 50% at 50% 100%, hsl(42 70% 60% / 0.35), transparent 70%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsl(42 70% 60% / 0.25);
+    --shadow-cinema: 0 30px 80px -30px hsl(222 80% 2% / 0.8);
+    --shadow-gold: 0 10px 40px -10px hsl(42 70% 50% / 0.4);
+
+    /* Motion */
+    --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: hsl(var(--gold) / 0.3);
+    color: hsl(var(--ivory));
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--ink)); }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--gold) / 0.3);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--gold) / 0.6); }
+}
+
+@layer components {
+  .font-serif-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-feature-settings: "liga", "dlig", "swsh";
+  }
+
+  .gold-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.7), transparent);
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .hairline {
+    box-shadow: 0 0 0 1px hsl(var(--gold) / 0.25);
+  }
+
+  .vignette::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 50%, hsl(var(--ink) / 0.7) 100%);
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
 
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  .mask-fade-b {
+    mask-image: linear-gradient(180deg, black 60%, transparent);
+    -webkit-mask-image: linear-gradient(180deg, black 60%, transparent);
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
