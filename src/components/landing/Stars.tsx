@@ -23,7 +23,7 @@ export const Stars = ({ count = 80, className = "" }: StarsProps) => {
       {stars.map((s) => (
         <span
           key={s.id}
-          className="absolute rounded-full bg-ivory animate-twinkle"
+          className="absolute rounded-full bg-gold animate-twinkle"
           style={{
             top: `${s.top}%`,
             left: `${s.left}%`,
@@ -31,8 +31,8 @@ export const Stars = ({ count = 80, className = "" }: StarsProps) => {
             height: `${s.size}px`,
             animationDelay: `${s.delay}s`,
             animationDuration: `${s.duration}s`,
-            opacity: 0.6,
-            boxShadow: "0 0 4px hsl(var(--ivory) / 0.6)",
+            opacity: 0.7,
+            boxShadow: "0 0 6px hsl(var(--gold) / 0.7)",
           }}
         />
       ))}

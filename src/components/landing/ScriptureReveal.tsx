@@ -47,7 +47,7 @@ export const ScriptureReveal = () => {
                   color: useTransform(
                     scrollYProgress,
                     [start * 0.8, end * 0.8 + 0.2],
-                    ["hsl(40 30% 92% / 0.15)", "hsl(40 35% 94%)"]
+                    ["hsl(222 38% 11% / 0.12)", "hsl(222 38% 11%)"]
                   ),
                 }}
               >

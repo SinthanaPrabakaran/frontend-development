@@ -71,7 +71,7 @@ export const Membership = () => {
               }`}
             >
               {p.featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-gold text-ink text-[0.6rem] uppercase tracking-[0.35em]">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-gold text-primary-foreground text-[0.6rem] uppercase tracking-[0.35em]">
                   Most Chosen
                 </span>
               )}
@@ -93,7 +93,7 @@ export const Membership = () => {
                 href="#"
                 className={`group inline-flex items-center justify-center gap-2 py-3.5 text-xs uppercase tracking-[0.3em] transition-all ${
                   p.featured
-                    ? "bg-gradient-gold text-ink hover:shadow-glow shadow-gold"
+                    ? "bg-gradient-gold text-primary-foreground hover:shadow-glow shadow-gold"
                     : "border border-gold/40 text-gold hover:border-gold hover:bg-gold/5"
                 }`}
               >

@@ -2,65 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Lumen — Sacred & Cinematic Design System
-   All colors HSL. Tokens only. */
+/* Lumen — Sacred & Cinematic LIGHT theme
+   Parchment, deep ink, gold leaf. All colors HSL. */
 
 @layer base {
   :root {
-    /* Core sacred palette — midnight, ivory, gold */
-    --background: 222 45% 6%;
-    --foreground: 40 30% 92%;
+    /* Soft sacred palette — blush cream, dusty rose-gold, soft sage, muted indigo ink */
+    --background: 30 50% 97%;
+    --foreground: 230 28% 18%;
 
-    --card: 222 40% 9%;
-    --card-foreground: 40 30% 92%;
+    --card: 30 45% 99%;
+    --card-foreground: 230 28% 18%;
 
-    --popover: 222 45% 6%;
-    --popover-foreground: 40 30% 92%;
+    --popover: 30 50% 99%;
+    --popover-foreground: 230 28% 18%;
 
-    /* Gold leaf — primary accent */
-    --primary: 42 70% 60%;
-    --primary-foreground: 222 45% 6%;
-    --primary-glow: 44 85% 70%;
-    --primary-deep: 36 60% 42%;
+    /* Soft rose-gold accent */
+    --primary: 28 60% 55%;
+    --primary-foreground: 30 50% 99%;
+    --primary-glow: 35 75% 70%;
+    --primary-deep: 22 50% 42%;
 
-    --secondary: 222 35% 14%;
-    --secondary-foreground: 40 30% 92%;
+    --secondary: 25 40% 92%;
+    --secondary-foreground: 230 28% 18%;
 
-    --muted: 222 30% 12%;
-    --muted-foreground: 40 15% 65%;
+    --muted: 30 30% 94%;
+    --muted-foreground: 230 14% 42%;
 
-    --accent: 42 70% 60%;
-    --accent-foreground: 222 45% 6%;
+    --accent: 280 25% 78%;
+    --accent-foreground: 230 28% 18%;
 
-    --destructive: 0 60% 45%;
-    --destructive-foreground: 40 30% 92%;
+    --destructive: 0 55% 55%;
+    --destructive-foreground: 30 50% 99%;
 
-    --border: 222 30% 18%;
-    --input: 222 30% 14%;
-    --ring: 42 70% 60%;
+    --border: 28 25% 86%;
+    --input: 28 30% 90%;
+    --ring: 28 55% 60%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
-    /* Named scene tokens */
-    --ink: 222 50% 4%;
-    --night: 222 45% 9%;
-    --dusk: 222 40% 14%;
-    --ivory: 40 35% 94%;
-    --parchment: 38 30% 88%;
-    --gold: 42 70% 60%;
-    --gold-soft: 42 50% 50%;
-    --ember: 22 75% 55%;
+    /* Scene tokens — soft pastel */
+    --ink: 30 50% 97%;          /* page background — blush cream */
+    --night: 28 40% 94%;        /* secondary surface — soft champagne */
+    --dusk: 25 30% 89%;         /* tertiary surface */
+    --ivory: 230 30% 20%;       /* primary text — soft indigo ink */
+    --parchment: 30 45% 92%;
+    --gold: 28 55% 58%;         /* dusty rose-gold */
+    --gold-soft: 35 65% 75%;
+    --ember: 12 65% 68%;
+    --sage: 150 22% 70%;
+    --lavender: 260 30% 82%;
+    --blush: 350 60% 88%;
+    --sky: 200 55% 85%;
 
-    /* Gradients */
-    --gradient-night: radial-gradient(ellipse at 50% 0%, hsl(222 45% 14%) 0%, hsl(222 50% 5%) 70%);
-    --gradient-dawn: linear-gradient(180deg, hsl(222 50% 5%) 0%, hsl(222 40% 12%) 40%, hsl(28 40% 20%) 80%, hsl(42 60% 35%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(42 70% 60%) 0%, hsl(36 60% 42%) 100%);
-    --gradient-rays: radial-gradient(ellipse 80% 50% at 50% 100%, hsl(42 70% 60% / 0.35), transparent 70%);
+    /* Gradients — soft glow */
+    --gradient-night: radial-gradient(ellipse at 50% 0%, hsl(30 55% 98%) 0%, hsl(28 40% 94%) 70%);
+    --gradient-dawn: linear-gradient(180deg, hsl(30 60% 98%) 0%, hsl(350 60% 94%) 40%, hsl(28 65% 88%) 80%, hsl(28 55% 78%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(35 75% 72%) 0%, hsl(22 55% 52%) 100%);
+    --gradient-rays: radial-gradient(ellipse 80% 60% at 50% 100%, hsl(35 80% 75% / 0.45), transparent 70%);
+    --gradient-aurora: linear-gradient(125deg, hsl(350 70% 92%) 0%, hsl(35 80% 90%) 35%, hsl(150 35% 88%) 65%, hsl(260 40% 90%) 100%);
+    --gradient-mist: radial-gradient(circle at 20% 20%, hsl(350 70% 90% / 0.7), transparent 50%), radial-gradient(circle at 80% 30%, hsl(260 50% 88% / 0.55), transparent 55%), radial-gradient(circle at 60% 90%, hsl(35 80% 85% / 0.6), transparent 60%);
 
-    /* Shadows */
-    --shadow-glow: 0 0 60px hsl(42 70% 60% / 0.25);
-    --shadow-cinema: 0 30px 80px -30px hsl(222 80% 2% / 0.8);
-    --shadow-gold: 0 10px 40px -10px hsl(42 70% 50% / 0.4);
+    /* Shadows — gentle */
+    --shadow-glow: 0 0 80px hsl(28 70% 70% / 0.45);
+    --shadow-cinema: 0 30px 80px -30px hsl(230 40% 30% / 0.18);
+    --shadow-gold: 0 16px 50px -16px hsl(28 60% 60% / 0.45);
+    --shadow-soft: 0 10px 40px -12px hsl(230 30% 30% / 0.12);
 
     /* Motion */
     --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
@@ -84,7 +91,7 @@
   }
 
   ::selection {
-    background: hsl(var(--gold) / 0.3);
+    background: hsl(var(--gold) / 0.35);
     color: hsl(var(--ivory));
   }
 
@@ -92,10 +99,10 @@
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: hsl(var(--ink)); }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--gold) / 0.3);
+    background: hsl(var(--gold) / 0.4);
     border-radius: 4px;
   }
-  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--gold) / 0.6); }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--gold) / 0.7); }
 }
 
 @layer components {
@@ -121,13 +128,13 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.06;
-    mix-blend-mode: overlay;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
   .hairline {
-    box-shadow: 0 0 0 1px hsl(var(--gold) / 0.25);
+    box-shadow: 0 0 0 1px hsl(var(--gold) / 0.35);
   }
 
   .vignette::before {
@@ -135,7 +142,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 50%, hsl(var(--ink) / 0.7) 100%);
+    background: radial-gradient(ellipse at center, transparent 50%, hsl(var(--ivory) / 0.18) 100%);
   }
 }
 
